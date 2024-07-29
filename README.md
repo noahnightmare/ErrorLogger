@@ -19,4 +19,8 @@ ErrorLogger:
   webhook_link: ''
   # Whether the Webhook should send it's contents in Embed form or not.
   embeds: true
+  # Blacklist - if an error contains any of these words, they will not be posted through the webhook. Leave blank [] to not blacklist anything.
+  blacklist:
+  - 'Word1'
+  - 'Word2'
 ```

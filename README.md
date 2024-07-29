@@ -4,7 +4,7 @@
 ## About
 A simple plugin used to send all errors within your console to a discord webhook.
 
-Credit to https://github.com/BuildBoy12-SL/ErrorHandler for the original idea.
+Credit to https://github.com/BuildBoy12-SL/ErrorHandler for the original idea.  
 This plugin is an updated version of Build's ErrorHandler, as it is outdated and archived.
 
 ## Default Config

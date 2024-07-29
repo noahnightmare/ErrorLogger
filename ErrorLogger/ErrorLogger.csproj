@@ -93,6 +93,8 @@
     <Compile Include="Config.cs" />
     <Compile Include="ErrorLogger.cs" />
     <Compile Include="EventHandlers.cs" />
+    <Compile Include="Models\Embed.cs" />
+    <Compile Include="Models\Field.cs" />
     <Compile Include="Patches\ErrorPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

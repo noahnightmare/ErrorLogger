@@ -15,5 +15,8 @@ namespace ErrorLogger
 
         [Description("Specify which webhook errors should be sent to. ")]
         public string WebhookLink { get; set; } = string.Empty;
+
+        [Description("Whether the Webhook should send it's contents in Embed form or not.")]
+        public bool Embeds { get; set; } = true;
     }
 }

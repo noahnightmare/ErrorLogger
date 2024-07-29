@@ -12,6 +12,7 @@ using HarmonyLib;
 using System.Runtime.Remoting.Messaging;
 using Newtonsoft.Json;
 using System.Reflection;
+using ErrorLogger.Models;
 
 namespace ErrorLogger
 {
@@ -40,6 +41,14 @@ namespace ErrorLogger
 
             RegisterEvents();
             RegisterPatch();
+
+            /* Timing.CallDelayed(3f, () =>
+            {
+                Task.Run(async () =>
+                {
+                    await ErrorLogger.Instance.SendMessage("ErrorLoggerTesting", $"```test content```");
+                });
+            }); */
 
             base.OnEnabled();
         }
@@ -107,9 +116,39 @@ namespace ErrorLogger
 
                 string serverNum = (Server.Port - 7777 + 1).ToString();
 
+                // data being sent to the webhook
+                // either embed or content based on what the user preference is
+                object payloadObj;
+
                 using (HttpClient client = new HttpClient())
                 {
-                    var payloadObj = new { content = $"# **[SERVER {serverNum}]**\n\nError in **{pluginName}**:\n\n{payload}" };
+                    if (Config.Embeds)
+                    {
+                        payloadObj = new
+                        {
+                            embeds = new Embed[]
+                            {
+                                new Embed()
+                                {
+                                    author = new Dictionary<string, string>()
+                                    {
+                                        { "name", $"Server {serverNum}" }
+                                    },
+                                    title = $"⚠️ Error in **{pluginName}**",
+                                    color = 16711680, // decimal value for red
+                                    description = $"{payload}"
+                                }
+                            }
+                        };
+                    }
+                    else
+                    {
+                        payloadObj = new
+                        {
+                            content = $"# **Server {serverNum}**\n\n⚠️ Error in **{pluginName}**:\n\n{payload}",
+                        };
+                    }
+                    
                     var jsonPayload = JsonConvert.SerializeObject(payloadObj, Formatting.Indented);
                     var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 

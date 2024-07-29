@@ -46,7 +46,7 @@ namespace ErrorLogger
             {
                 Task.Run(async () =>
                 {
-                    await ErrorLogger.Instance.SendMessage("ErrorLoggerTesting", $"```test content```");
+                    await ErrorLogger.Instance.SendMessage("TestName", $"```test content```");
                 });
             }); */
 
@@ -108,6 +108,15 @@ namespace ErrorLogger
             {
                 Log.Debug("Error originated from ErrorLogger, will not be logged.");
                 return;
+            }
+
+            foreach (string word in Config.Blacklist)
+            {
+                if (pluginName.ToLower().Contains(word.ToLower()) || payload.ToLower().Contains(word.ToLower()))
+                {
+                    Log.Debug("Error contains blacklisted word! Error will not be logged.");
+                    return;
+                }
             }
 
             try

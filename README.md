@@ -17,4 +17,6 @@ ErrorLogger:
   debug: false
   # Specify which webhook errors should be sent to. 
   webhook_link: ''
+  # Whether the Webhook should send it's contents in Embed form or not.
+  embeds: true
 ```

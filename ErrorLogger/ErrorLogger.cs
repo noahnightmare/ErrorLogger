@@ -97,7 +97,6 @@ namespace ErrorLogger
 
         public async Task SendMessage(string pluginName, string payload)
         {
-
             if (string.IsNullOrEmpty(payload)) 
             {
                 Log.Debug("Error was empty.");

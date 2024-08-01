@@ -16,7 +16,7 @@ namespace ErrorLogger
             { 
                 Task.Run(async () =>
                 {
-                    await ErrorLogger.Instance.SendMessage("LocalAdmin log", $"{logString}\n{stackTrace}");
+                    await ErrorLogger.Instance.SendMessage("LocalAdmin log", $"```{logString}\n{stackTrace}```");
                 });
             }
         }

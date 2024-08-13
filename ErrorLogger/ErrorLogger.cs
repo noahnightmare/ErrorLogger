@@ -20,6 +20,9 @@ namespace ErrorLogger
     {
         public override string Author => "noah";
         public override string Name => "ErrorLogger";
+
+        public override Version Version => new Version(1, 0, 3);
+        public override Version RequiredExiledVersion => new Version(8, 9, 11);
         public override string Prefix => Name;
 
         public static ErrorLogger Instance;

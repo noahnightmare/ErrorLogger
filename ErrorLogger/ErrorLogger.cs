@@ -21,7 +21,7 @@ namespace ErrorLogger
         public override string Author => "noah";
         public override string Name => "ErrorLogger";
 
-        public override Version Version { get; } = new Version(1, 0, 3);
+        public override Version Version { get; } = new Version(1, 0, 4);
         public override Version RequiredExiledVersion { get; } = new Version(8, 11, 0);
         public override string Prefix => Name;
 

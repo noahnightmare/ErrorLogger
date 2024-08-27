@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="ErrorLogger.cs" />
     <Compile Include="EventHandlers.cs" />

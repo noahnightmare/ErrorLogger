@@ -19,7 +19,7 @@ namespace ErrorLogger.Patches
 
             Task.Run(async () =>
             {
-                await ErrorLogger.Instance.SendMessage(callingAssembly.GetName().Name, $"```{message}```");
+                await API.SendMessage(callingAssembly.GetName().Name, $"```{message}```");
             });
         }
     }
@@ -33,7 +33,7 @@ namespace ErrorLogger.Patches
 
             Task.Run(async () =>
             {
-                await ErrorLogger.Instance.SendMessage(callingAssembly.GetName().Name, $"```{message}```");
+                await API.SendMessage(callingAssembly.GetName().Name, $"```{message}```");
             });
         }
     }

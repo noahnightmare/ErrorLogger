@@ -58,7 +58,7 @@ namespace ErrorLogger
                                 {
                                     author = new Dictionary<string, string>()
                                     {
-                                        { "name", $"Server {serverNum}" }
+                                        { "name", $"Server {serverNum}   |   Port {Server.Port}" }
                                     },
                                     title = $"⚠️ Error in **{pluginName}**",
                                     color = 16711680, // decimal value for red
@@ -71,7 +71,7 @@ namespace ErrorLogger
                     {
                         payloadObj = new
                         {
-                            content = $"# **Server {serverNum}** | Port {Server.Port}\n\n⚠️ Error in **{pluginName}**:\n\n{payload}",
+                            content = $"# **Server {serverNum}**   |   Port {Server.Port}\n\n⚠️ Error in **{pluginName}**:\n\n{payload}",
                         };
                     }
 
